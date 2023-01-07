@@ -370,7 +370,7 @@ if __name__ == "__main__":
             optimizer.step()
             scheduler.step()
             
-        train_loss_a_epoch = np.average(train_losses_in_epoch)  # 一次epoch的平均训练loss
+        train_loss_a_epoch = np.average(train_losses_in_epoch)
         # train_loss_a_epoch = train_losses_in_epoch/math.ceil(len(train_drug_dataset)/hp.Batch_size)
         writer.add_scalar('Train Loss', train_loss_a_epoch, epoch)
         # avg_train_losses.append(train_loss_a_epoch)
