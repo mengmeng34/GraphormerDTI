@@ -18,7 +18,7 @@ import torch.nn.functional as F
 from molecules import MoleculeDataset, MoleculeDGL
 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # 没有英伟达显卡，装的CPU版的pytorch
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def shuffle_dataset(dataset, seed):
@@ -224,5 +224,7 @@ if __name__ == "__main__":
     
     datasets = MoleculeDatasetDGL(train, valid, test)
     print(len(datasets.train), len(datasets.val), len(datasets.test))
+    if not os.path.exists("./molecule_data/"):
+        os.mkdir("./molecule_data/")
     save_dict(datasets, DATASET + "_transductive_setting_" + str(SEED))
     
