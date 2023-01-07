@@ -18,7 +18,7 @@ import torch.nn.functional as F
 from molecules import MoleculeDataset, MoleculeDGL
 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # 没有英伟达显卡，装的CPU版的pytorch
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def shuffle_dataset(dataset, seed):
@@ -61,17 +61,6 @@ def generate_data(DATASET, data):
 class MoleculeDGL(torch.utils.data.Dataset):
     def __init__(self, data):
         self.data = data
-
-        """
-        data is a list of Molecule dict objects with following attributes
-        data 是具有以下属性的 Molecule dict 对象列表
-
-          molecule = data[idx]
-        ; molecule['num_atom'] : nb of atoms, an integer (N)
-        ; molecule['atom_type'] : tensor of size N, each element is an atom type, an integer between 0 and num_atom_type
-        ; molecule['bond_type'] : tensor of size N x N, each element is a bond type, an integer between 0 and num_bond_type 邻接矩阵
-        ; molecule['logP_SA_cycle_normalized'] : the chemical property to regress, a float variable 要回归的化学性质，浮点变量
-        """
         self.graph_lists = []
         self.num_atoms = []
         self.in_degree = []
@@ -233,5 +222,7 @@ if __name__ == "__main__":
     
     datasets = MoleculeDatasetDGL(train, valid, test)
     print(len(datasets.train), len(datasets.val), len(datasets.test))
+    if not os.path.exists("./molecule_data/"):
+        os.mkdir("./molecule_data/")
     save_dict(datasets, DATASET + "_drug_inductive_setting_" + str(SEED))
     
