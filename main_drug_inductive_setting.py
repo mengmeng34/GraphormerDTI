@@ -123,7 +123,7 @@ def test_model(dataset_load, drug_load, save_path, DATASET, LOSS, dataset="Train
     T, P, loss_test, Accuracy_test, Precision_test, Recall_test, AUC_test, PRC_test = \
         test_precess(model, test_pbar, drug_load, LOSS)
     if save:
-        with open(save_path + "/{}_{}_{}_prediction.txt".format(DATASET, dataset, lable), 'a') as f:
+        with open(save_path + "/{}_{}_{}_prediction.txt".format(DATASET, dataset, lable), 'w') as f:
             for i in range(len(T)):
                 f.write(str(T[i]) + " " + str(P[i]) + '\n')
     results = '{}_set--Loss:{:.5f};Accuracy:{:.5f};Precision:{:.5f};Recall:{:.5f};AUC:{:.5f};PRC:{:.5f}.' \
