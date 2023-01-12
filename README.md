@@ -2,7 +2,7 @@
 A graph transformer-based approach for drug-target interaction prediction.
 ## Requirements and Installation
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 ## Preprocess
 Under transductive setting, please run the code
