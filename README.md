@@ -13,6 +13,10 @@ Under drug inductive setting, please run the code
 ```
 python preprocess_drug_inductive_setting.py
 ```
+Under drug-protein inductive setting, please run the code
+```
+python preprocess_drug_protein_inductive_setting.py
+```
 ## Run
 Under transductive setting, please run the code
 ```
@@ -21,4 +25,8 @@ python main_transductive_setting.py
 Under drug inductive setting, please run the code
 ```
 python main_drug_inductive_setting.py
+```
+Under drug-protein inductive setting, please run the code
+```
+python main_drug_protein_inductive_setting.py
 ```
