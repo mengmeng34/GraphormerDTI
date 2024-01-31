@@ -45,3 +45,15 @@ Under drug-protein inductive setting, please run the code
 ```
 python main_drug_protein_inductive_setting.py
 ```
+We will continue to use the Davis dataset under transductive setting as an example, using ./protein_data/Davis.txt and the preprocessed output pkl file as inputs for model training and prediction. During the process, logs may be output as follows:
+```
+Train in Davis
+proteins load finished
+data shuffle
+10157 2540 12696
+train, val, test sizes : 10157 2540 12696
+molecules load finished
+Training...
+The stable model's results:...
+```
+The log output includes the results of the validation set after each epoch and the final test set results, which are stored in ./Davis_transductive_setting folder.
